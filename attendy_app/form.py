@@ -6,7 +6,7 @@ class PeopleForm(UserCreationForm):
     email = forms.EmailField(required=True)
     class Meta:
         model = People
-        fields = ("username", "email", "password1", "password2")
+        fields = ("username", "email", "password1", "password2", "user_type", "class_number")
 
     def clean_username(self):
         # Since User.username is unique, this check is redundant,
