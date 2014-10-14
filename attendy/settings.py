@@ -26,6 +26,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'attendy_app.People'
 
 # Application definition
 
@@ -64,6 +65,7 @@ DATABASES = {
     }
 }
 
+LOGIN_REDIRECT_URL = 'profile'
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
