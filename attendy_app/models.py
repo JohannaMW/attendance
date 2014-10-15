@@ -9,7 +9,7 @@ class People(AbstractUser):
         (STUDENT, "student")
     )
     user_type = models.PositiveSmallIntegerField(choices=TYPE, default=0)
-    status = models.BooleanField(default=False)
+    check_in = models.BooleanField(default=False)
     class_number = models.IntegerField(default=0)
     check_in_date = models.DateField(null=True, blank=True)
     check_in_counter = models.IntegerField(default=0)

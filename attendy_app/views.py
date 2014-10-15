@@ -1,8 +1,9 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, render_to_response, redirect, HttpResponse
 from django.template import RequestContext
-from attendy_app.form import PeopleForm
+from attendy_app.forms import PeopleForm
 from django.db.models import Max
+from attendy_app.forms import StudentForm
 from attendy_app.models import People
 from django.core import serializers
 
@@ -33,5 +34,19 @@ def register(request):
         form = PeopleForm()
 
     return render(request, "registration/register.html", {
+        'form': form,
+    })
+
+
+def check_in(request):
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = StudentForm()
+
+    return render(request, "check_in.html", {
         'form': form,
     })
