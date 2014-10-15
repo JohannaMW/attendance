@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from attendy_app.models import People
+from django.forms import ModelForm
+
 
 class PeopleForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -20,3 +22,12 @@ class PeopleForm(UserCreationForm):
             self.error_messages['duplicate_username'],
             code='duplicate_username',
         )
+
+class TeacherForm(ModelForm):
+    class Meta:
+        model = People
+        fields = [
+            'user_type',
+            'check_in_date'
+        ]
+
