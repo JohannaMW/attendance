@@ -8,7 +8,7 @@
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
     <link href="{% static "css/bootswatch.less" %}" rel="stylesheet">
     <link href="{% static "css/variables.less" %}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
 </head>
 <body>
 <div class="navbar navbar-default">
@@ -30,6 +30,8 @@
                         <li><a href="{% url 'logout' %}">Logout</a></li>
 
                          {% if user.user_type == 0 %}
+{#                            <div  <style> body {background_picture : url('/static/img/teacher.jpeg');important !} </style>#}
+
                         <li><a href="{% url 'check_in' %}">CheckIn/Out</a></li>
                                  {% else %}
                          <li><a href="{% url 'teacher_view' %}">View Data</a></li>
