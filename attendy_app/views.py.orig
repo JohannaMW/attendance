@@ -46,7 +46,7 @@ def teacher_view(request):
         form = TeacherForm(request.POST)
         if form.is_valid():
             check_in_date = request.POST['check_in_date']
-            students = People.objects.filter(check_in=True, check_in_date=check_in_date)
+            students = People.objects.filter(checked_in=True, check_in_date=check_in_date)
             return render(request, "teacher_home.html", {'students': students})
     else:
         form = TeacherForm()
