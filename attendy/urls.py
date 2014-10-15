@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^register/$', 'attendy_app.views.register', name='register'),
     url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', name='logout'),
+    url(r'^check_in/$', 'attendy_app.views.check_in', name='check_in'),
     url(r'^admin/', include(admin.site.urls)),
 )
 

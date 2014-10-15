@@ -1,5 +1,7 @@
+import datetime
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.forms import ModelForm
 from attendy_app.models import People
 
 class PeopleForm(UserCreationForm):
@@ -20,3 +22,10 @@ class PeopleForm(UserCreationForm):
             self.error_messages['duplicate_username'],
             code='duplicate_username',
         )
+
+
+class StudentForm(ModelForm):
+    class Meta:
+        model = People
+        fields = ('check_in', 'check_in_date')
+
