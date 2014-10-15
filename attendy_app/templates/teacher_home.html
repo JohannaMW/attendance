@@ -1,0 +1,9 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+    <div>
+        {% for student in students %}
+        {{ student.check_in_date }}{{ student.name }}{{ student.check_in_counter }}
+        {% endfor %}
+    </div>
+{% endblock %}

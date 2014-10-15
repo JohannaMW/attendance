@@ -1,5 +1,9 @@
 from django.contrib.auth import authenticate, login
+from django.core import serializers
 from django.shortcuts import render, render_to_response, redirect, HttpResponse
+from .models import People
+from .forms import PeopleForm
+from .forms import TeacherForm
 from django.template import RequestContext
 from attendy_app.forms import PeopleForm
 from django.db.models import Max
@@ -37,6 +41,17 @@ def register(request):
         'form': form,
     })
 
+def teacher_view(request):
+    if request.method == 'POST':
+        form = TeacherForm(request.POST)
+        if form.is_valid():
+            check_in_date = request.POST['check_in_date']
+            students = People.objects.filter(checked_in=True, check_in_date=check_in_date)
+            return render(request, "teacher_home.html", {'students': students})
+    else:
+        form = TeacherForm()
+
+    return render(request, "teacher_view.html", {'form': form})
 
 def check_in(request):
     if request.method == 'POST':
