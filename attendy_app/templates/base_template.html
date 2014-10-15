@@ -18,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="#">Attendy</a>
+                  <a class="navbar-brand" href="{% url 'home' %}">Attendy</a>
                 </div>
                 <div class="navbar-collapse collapse navbar-responsive-collapse">
 
@@ -28,11 +28,12 @@
                          {% if user.is_authenticated %}
 
                         <li><a href="{% url 'logout' %}">Logout</a></li>
-                   {% comment %}          {% if user.teacher %}
+
+                         {% if user.user_type == 0 %}
                         <li><a href="{% url 'check_in' %}">CheckIn/Out</a></li>
                                  {% else %}
                          <li><a href="{% url 'teacher_view' %}">View Data</a></li>
-                                 {% endif %} {% endcomment %}
+                                 {% endif %}
                         {% else %}
                         <li><a href="{% url 'login' %}">Login</a></li>
                         <li><a href="{% url 'register' %}">Register</a></li>

@@ -25,16 +25,6 @@ class PeopleForm(UserCreationForm):
             code='duplicate_username',
         )
 
-class TeacherForm(ModelForm):
-    class Meta:
-        model = People
-        fields = [
-            'user_type',
-            'check_in_date'
-        ]
-
-class StudentForm(ModelForm):
-    class Meta:
-        model = People
-        fields = ('check_in', 'check_in_date')
+class TeacherForm(forms.Form):
+        date = forms.DateField(required=True)
 

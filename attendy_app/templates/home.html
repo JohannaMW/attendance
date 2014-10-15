@@ -1,7 +1,16 @@
 {% extends "base_template.html" %}
 
 {% block content %}
+    <center>
     <h1>Welcome</h1>
     <div id="mayor"></div>
+           {% if user.user_type == 0 %}
+                        <a href="teacher_view" id ="check" class="btn btn-warning">Check out Check-In Status</a>
+                                 {% else %}
+                        <a href="#" id ="check_in" class="btn btn-success">Check-In</a>
+               <div id="checked_in"></div>
+                                 {% endif %}
+
+    </center>
 {% endblock %}
             

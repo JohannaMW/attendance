@@ -1,9 +1,12 @@
 {% extends "base_template.html" %}
 
 {% block content %}
+<center>
     <div>
+    <h1>Students checked in on {{ date }}</h1><br>
         {% for student in students %}
-        {{ student.check_in_date }}{{ student.name }}{{ student.check_in_counter }}
+       {{ student }}
         {% endfor %}
     </div>
+</center>
 {% endblock %}
