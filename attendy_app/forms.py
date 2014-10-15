@@ -1,5 +1,7 @@
+import datetime
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.forms import ModelForm
 from attendy_app.models import People
 from django.forms import ModelForm
 
@@ -8,7 +10,7 @@ class PeopleForm(UserCreationForm):
     email = forms.EmailField(required=True)
     class Meta:
         model = People
-        fields = ("username", "email", "password1", "password2")
+        fields = ("username", "email", "password1", "password2", "user_type", "class_number")
 
     def clean_username(self):
         # Since User.username is unique, this check is redundant,
@@ -30,4 +32,9 @@ class TeacherForm(ModelForm):
             'user_type',
             'check_in_date'
         ]
+
+class StudentForm(ModelForm):
+    class Meta:
+        model = People
+        fields = ('check_in', 'check_in_date')
 
