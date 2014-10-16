@@ -1,7 +1,25 @@
+from django.core.exceptions import ValidationError
 from django.test import TestCase
-from forms import TeacherForm
+from forms import TeacherForm, PeopleForm
 from models import People
 from views import check_in
+
+
+
+class RegisterTest(TestCase):
+    def test_clean_username_exception(self):
+        People.objects.create_user(username='Bob')
+        form = PeopleForm()
+        form.cleaned_data = {'username': 'Bob'}
+
+        with self.assertRaises(ValidationError):
+            form.clean_username()
+
+    def test_clean_username_pass(self):
+        People.objects.create_user(username='haha')
+        form = PeopleForm()
+        form.cleaned_data = {'username': 'unique'}
+        form.clean_username()
 
 
 class FormTest(TestCase):
