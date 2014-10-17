@@ -4,9 +4,18 @@ body {
     background-size: cover;
     color:darkblue;
 
+
 }
 #mayor {
     color: darkblue;
-    font-size: 40px;
-    font-style: bold;
+    font-size: 30px;
+  }
+
+h1{
+    font-size:70px;
 }
+
+#login {
+    color: darkblue;
+    font-size: 25px;
+  }
