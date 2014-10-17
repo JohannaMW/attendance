@@ -1,0 +1,10 @@
+body {
+      background-image: url('/static/img/teacher.jpeg');
+    color:darkblue;
+
+}
+#mayor {
+    color: darkblue;
+    font-size: 40px;
+    font-style: bold;
+}
