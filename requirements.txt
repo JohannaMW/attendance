@@ -1,3 +1,13 @@
+## The following requirements were added by pip --freeze:
 Django==1.7
-psycopg2==2.5.4
+argparse==1.2.1
+django-debug-toolbar==1.2.1
+lxml==3.4.0
+requests==2.4.1
+selenium==2.43.0
+sqlparse==0.1.11
+stevedore==0.15
+virtualenv==1.11.6
+virtualenv-clone==0.2.5
+virtualenvwrapper==4.3.1
 wsgiref==0.1.2

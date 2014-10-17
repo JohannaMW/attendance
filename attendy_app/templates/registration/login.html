@@ -2,6 +2,7 @@
 
 {% block content %}
     <center>
+    <div id="login">
     <form method="post" action=".">
         {% csrf_token %}
         {{ form.as_p }}
@@ -10,5 +11,6 @@
     </form>
 
     <p>Not member? <a href="{% url 'register' %}">Login</a></p>
+        </div>
     </center>
 {% endblock %}
